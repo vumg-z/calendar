@@ -1368,6 +1368,11 @@
         clickApply: function (e) {
             this.hide();
             this.element.trigger('apply.daterangepicker', this);
+
+            console.log("hola dafne")
+            // aqui empieza la logica de "aplicar", lo que supongo debe ser modificada para no ocultarla, si no abrir un segundo paso de elección de hora.
+            
+
         },
 
         clickCancel: function (e) {
