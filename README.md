@@ -1,6 +1,7 @@
-# Documentación para iniciar un servidor en vivo
 
-Para abrir un servidor en vivo y depurar el archivo `index_2.html`, sigue estos pasos:
+# Documentación para iniciar.
+
+Para abrir un servidor y depurar el archivo `index_2.html`, sigue estos pasos:
 
 1. **Descargar la extensión Live Server**:
     - Abre Visual Studio Code.
@@ -21,5 +22,8 @@ Para abrir un servidor en vivo y depurar el archivo `index_2.html`, sigue estos 
     - Una vez que el servidor en vivo esté en funcionamiento, tu navegador predeterminado debería abrir una nueva pestaña con la vista previa de `index_2.html`.
     - Puedes hacer cambios en el archivo y ver los resultados en tiempo real en el navegador.
     - Utiliza las herramientas de desarrollo del navegador (generalmente accesibles con `F12` o `Ctrl+Shift+I`) para depurar y revisar el código HTML, CSS y JavaScript.
+
+5. **Modificar daterangepicker.js**
+    - en dist/daterangepicker dejé un console.log() en la linea 1372 es en donde empieza la logica de aplicar
 
 Ahora puedes depurar tu archivo `index_2.html` utilizando Live Server en Visual Studio Code.
