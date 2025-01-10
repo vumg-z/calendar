@@ -1,0 +1,733 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./dist/output.css" rel="stylesheet">
+
+  <style>
+    /* This style applies to the body to ensure it takes the full viewport height */
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      /* Centers horizontally */
+      align-items: center;
+      /* Centers vertically */
+    }
+
+    /* Style for the div */
+    .centered-content {
+      display: flex;
+      justify-content: center;
+      /* Centers horizontally */
+      align-items: center;
+      /* Centers vertically */
+      width: 50%;
+      /* Example width */
+      height: 50%;
+      /* Example height */
+      text-align: center;
+      /* Centers the text inside the div */
+    }
+
+    a.absolute.button-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* Positions the first link (and thus its button) at the top left */
+      z-index: 1000;
+    }
+
+    a.absolute.button-2 {
+      position: absolute;
+      top: 0;
+      left: 130px;
+      /* Positions the second link (and thus its button) to the right of the first one */
+      z-index: 1000;
+    }
+
+    a.absolute.button-3 {
+      position: absolute;
+      top: 0;
+      left: 330px;
+      /* Positions the second link (and thus its button) to the right of the first one */
+      z-index: 1000;
+    }
+
+    .notas {
+      position: absolute;
+      /* or 'fixed' for fixed positioning */
+      top: 0;
+      right: 0;
+      margin: 20px;
+      width: auto;
+      z-index: 1001;
+    }
+
+    /*
+    Hide the notes by default on mobile devices
+    @media (max-width: 768px) {
+      /* .notes-container {
+        display: none;
+      } 
+
+      /* .show-notes-btn {
+        display: block;
+        /* Show the button on mobile devices 
+      } 
+    }
+    */
+
+    /* Hide the button on desktop */
+    @media (min-width: 769px) {
+      .show-notes-btn {
+        display: none;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <div class="notes-container" id="notesContainer">
+    <!-- Your notes go here, as structured in your example -->
+    <div class="notas">
+
+      <div class="toast-notification-container">
+        <!-- Version V.01 Toast Notification -->
+        <div id="toast-v01"
+          class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert">
+          <div
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </div>
+          <div class="ms-3 text-sm font-normal">Las fechas ahora aparecen en su contenedor en vez de juntas.</div>
+          <button type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            data-dismiss-target="#toast-v01" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+          </button>
+        </div>
+        <!-- Additional version toasts can be added here following the same structure -->
+      </div>
+
+      <div class="toast-notification-container">
+        <!-- Version V.01 Toast Notification -->
+        <div id="toast-v03"
+          class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert">
+          <div
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </div>
+          <div class="ms-3 text-sm font-normal">El teclado no se abre cuando se selecciona un input desde movil.</div>
+          <button type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            data-dismiss-target="#toast-v03" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+          </button>
+        </div>
+        <!-- Additional version toasts can be added here following the same structure -->
+      </div>
+
+      <div class="toast-notification-container">
+        <!-- Version V.01 Toast Notification -->
+        <div id="toast-v04"
+          class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert">
+          <div
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </div>
+          <div class="ms-3 text-sm font-normal">El input de las fechas es diferente en moviles. (Responsive) </div>
+          <button type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            data-dismiss-target="#toast-v04" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+          </button>
+        </div>
+        <!-- Additional version toasts can be added here following the same structure -->
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <a class="absolute button-3">
+    <!-- <button id="showNotesButton" type="button"
+      class="absolute button-3 show-notes-btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+      Ver notas
+    </button> -->
+
+    <a href="index.html" class="absolute button-1">
+      <button type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        Flowbite
+      </button>
+    </a>
+
+    <a href="index_2.html" class="absolute button-2">
+      <button type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        Date Range Picker
+      </button>
+    </a>
+
+
+
+    <div class="">
+
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <h5 class="mb-1 ">Lugar de Renta</h5>
+
+        <form action="saveDates.php" method="post">
+          <div class="flex">
+
+            <label for="search-dropdown" class="mb-1 text-sm font-medium text-gray-900 sr-only dark:text-white">Your
+              Email</label>
+
+            <button id="dropdown-button" data-dropdown-toggle="dropdown"
+              class="w-full flex items-center justify-between py-2.5 px-4  border-b-2 " type="button"
+              aria-label="Dropdown">
+              <span id="dropdown-selected"></span>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M5 8l5 5 5-5" />
+              </svg>
+            </button>
+
+            <div id="dropdown"
+              class=" z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">León
+                    Gto Apt (BJX)</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Puerto
+                    Vallarta
+                    Apt (PVR)</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Los
+                    Cabos Apt (SJD)</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Guadalajara
+                    Apt
+                    (GDL)</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cancun Apt
+                    (CUN)</a>
+                </li>
+              </ul>
+            </div>
+
+
+          </div>
+
+          <div class="flex justify-end w-full">
+            <p id="toggle-location"
+              class="mt-1 text-gray-500 cursor-pointer underline text-right flex items-center text-sm">
+              <svg class="w-3 h-3 text-gray-800 dark:text-white mr-1" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                  d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+              </svg>
+              Finalizaré en otra ubicación
+            </p>
+          </div>
+
+
+          <div id="additional-location" class="hidden">
+            <h5 class="mb-1">Lugar Final</h5>
+            <div class="flex">
+              <button id="dropdown-button-2" data-dropdown-toggle="dropdown-2"
+                class="w-full flex items-center justify-between py-2.5 px-4  border-b-2 " type="button"
+                aria-label="Dropdown 2">
+                <span id="dropdown-selected-2"></span>
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M5 8l5 5 5-5" />
+                </svg>
+              </button>
+
+              <div id="dropdown-2"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button-2">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                    <li>
+                      <a href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">León
+                        Gto Apt (BJX)</a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Puerto
+                        Vallarta
+                        Apt (PVR)</a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Los
+                        Cabos Apt (SJD)</a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Guadalajara
+                        Apt
+                        (GDL)</a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cancun
+                        Apt
+                        (CUN)</a>
+                    </li>
+                  </ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div date-rangepicker class="mt-1">
+            <div class="mt-1">
+              <h2 class="mb-2">Fecha de Inicio</h2>
+              <div class="flex items-center">
+                <div class="relative flex-grow">
+                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                    </svg>
+                  </div>
+                  <input name="dates" type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Select date start" readonly>
+                </div>
+
+                <div class="relative ml-2">
+                  <select name="start_hour"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="10:00 am">10:00 AM</option>
+                    <option value="11:00 am">11:00 AM</option>
+                    <option value="12:00 pm">12:00 PM</option>
+                    <option value="1:00 pm">1:00 PM</option>
+                    <option value="2:00 pm">2:00 PM</option>
+                    <option value="3:00 pm">3:00 PM</option>
+                    <option value="4:00 pm">4:00 PM</option>
+                    <option value="5:00 pm">5:00 PM</option>
+                    <option value="6:00 pm">6:00 PM</option>
+                    <option value="7:00 pm">7:00 PM</option>
+                    <option value="8:00 pm">8:00 PM</option>
+                    <option value="9:00 pm">9:00 PM</option>
+                    <option value="10:00 pm">10:00 PM</option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 mb-4">
+              <h2 class="mb-2">Fecha de Devolución</h2>
+              <div class="flex items-center ">
+
+                <div class="relative flex-grow">
+                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                    </svg>
+                  </div>
+                  <input name="dates" type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Select date end" readonly>
+
+                </div>
+
+                <div class="relative ml-2">
+                  <select name="end_hour"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="10:00 am">10:00 AM</option>
+                    <option value="11:00 am">11:00 AM</option>
+                    <option value="12:00 pm">12:00 PM</option>
+                    <option value="1:00 pm">1:00 PM</option>
+                    <option value="2:00 pm">2:00 PM</option>
+                    <option value="3:00 pm">3:00 PM</option>
+                    <option value="4:00 pm">4:00 PM</option>
+                    <option value="5:00 pm">5:00 PM</option>
+                    <option value="6:00 pm">6:00 PM</option>
+                    <option value="7:00 pm">7:00 PM</option>
+                    <option value="8:00 pm">8:00 PM</option>
+                    <option value="9:00 pm">9:00 PM</option>
+                    <option value="10:00 pm">10:00 PM</option>
+                  </select>
+
+                </div>
+              </div>
+
+              <div class="flex justify-end w-full">
+                <p id="toggle-location2"
+                  class="mt-1 text-gray-500 cursor-pointer underline text-right flex items-center text-sm">
+                  <svg class="w-3 h-3 text-gray-800 dark:text-white mr-1" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                      d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                  </svg>
+                  Código de Empresa o IATA
+                </p>
+              </div>
+
+
+              <!-- Hidden inputs container -->
+              <div id="input-container" class="hidden justify-between flex w-full mt-2">
+                <input type="text" name="codigo_aita" placeholder="Código AITA"
+                  class="w-1/2 mr-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <input type="text" name="codigo_de_empresa" placeholder="Código de Empresa"
+                  class="w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+
+
+
+            </div>
+
+
+
+            <div class="mt-1 space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="relative flex-grow">
+                  <input name="codigo_opcional" type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 pr-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="Código opcional">
+                </div>
+                <button name="cotizar"
+                  class="ml-4 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transform transition-colors duration-150 ease-in-out"
+                  style="background-color: #98ce44; hover:bg-green-700;">
+                  Cotizar
+                </button>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    </div>
+
+
+    <script src="./dist/flowbite.min.js"></script>
+    <!-- <script src="./dist/datepicker.js"></script> -->
+
+
+    <!-- librerias daterangepicker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="./dist/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="./dist/daterangepicker.css" />
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
+
+    <!-- <script>
+      document.getElementById('showNotesButton').addEventListener('click', function () {
+        var notesContainer = document.getElementById('notesContainer');
+        if (notesContainer.style.display === 'none') {
+          notesContainer.style.display = 'block';
+        } else {
+          notesContainer.style.display = 'none';
+        }
+      });
+    </script> -->
+
+    <script>
+      $(function () {
+        var startDate;
+        var endDate;
+
+        // Initialize the Date Range Picker on both inputs
+
+        $(function () {
+          // Function to initialize or update the daterangepicker
+          function initializeDaterangepicker() {
+            var dropsOption = 'desktop'; // Default to 'desktop'
+
+            // Check if window width is 564px or less for 'mobile'
+            if ($(window).width() <= 564) {
+              dropsOption = 'mobile';
+            }
+
+            $('input[name="dates"]').daterangepicker({
+              // Uncomment or add other options as needed
+              // autoApply: true,
+              // opens: 'left',
+              // showDropdowns: true,
+              drops: dropsOption, // Apply the dynamic 'drops' option
+              autoUpdateInput: false, // Prevent automatic update of the input fields
+              locale: {
+                format: 'DD/MM/YYYY', // Date format
+                separator: ' - ', // Separator between the start date and end date
+                applyLabel: 'Aplicar', // Label for the apply button
+                cancelLabel: 'Cancelar', // Label for the cancel button
+                fromLabel: 'De', // From label
+                toLabel: 'A', // To label
+                customRangeLabel: 'Personalizado', // Custom range label
+                daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'], // Days of the week
+                // Lun. Martes. Miercoles. Jue. Vier. Sabado. Domingo.
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'], // Month names
+                firstDay: 1 // First day of the week (Monday)
+              }
+            });
+
+            // console.log(dropsOption)
+          }
+
+          // Initialize the daterangepicker upon page load (BOTH INPUTS)
+          initializeDaterangepicker();
+
+          $(function () {
+            // When the date range is applied, split the range and update the hidden inputs
+            $('input[name="dates"]').on('apply.daterangepicker', function (ev, picker) {
+              var startDate = picker.startDate.format('MM/DD/YYYY');
+              var endDate = picker.endDate.format('MM/DD/YYYY');
+
+              // Set the hidden start and end date inputs
+              $('#start_date').val(startDate);
+              $('#end_date').val(endDate);
+
+              // For debugging purposes
+              console.log("Start Date: " + startDate);
+              console.log("End Date: " + endDate);
+
+              // Trigger change event on hidden inputs for any other handlers that might be listening
+              $('#start_date').trigger('change');
+              $('#end_date').trigger('change');
+            });
+
+              /*
+                // // Debugging the final values upon form submission
+                // $('form').on('submit', function (e) {
+                //   e.preventDefault(); // Prevent the form from submitting for debugging
+                //   console.log("Final start date on form submission:", $('#start_date').val());
+                //   console.log("Final end date on form submission:", $('#end_date').val());
+
+                //   // Here you would typically proceed with form submission
+                //   // For example, by calling this.submit() or using AJAX to submit the form data
+                // });
+              */
+            
+            // Initialize hidden inputs to store the start and end dates
+            if ($('#start_date').length === 0 && $('#end_date').length === 0) {
+              $('<input>').attr({
+                type: 'hidden',
+                id: 'start_date',
+                name: 'start_date'
+              }).appendTo('form');
+
+              $('<input>').attr({
+                type: 'hidden',
+                id: 'end_date',
+                name: 'end_date'
+              }).appendTo('form');
+            }
+          });
+
+          // Listen to window resize events
+          $(window).resize(function () {
+            // Destroy the existing daterangepicker instance
+            $('input[name="dates"]').data('daterangepicker').remove();
+
+            // Re-initialize the daterangepicker with the new 'drops' option
+            initializeDaterangepicker();
+
+          });
+        });
+
+
+
+        // Event listener for the start date picker
+        $('input[name="dates"]').eq(0).on('apply.daterangepicker', function (ev, picker) {
+          startDate = picker.startDate;
+          endDate = picker.endDate;
+          // Update the start date input with the selected start date
+          $(this).val(startDate.format('MM/DD/YYYY'));
+          // Update the end date input with the selected end date
+          $('input[name="dates"]').eq(1).val(endDate.format('MM/DD/YYYY'));
+          // Update the end date picker's display
+          updateEndDatePicker(startDate, endDate);
+        });
+
+        // Event listener for the end date picker
+        $('input[name="dates"]').eq(1).on('apply.daterangepicker', function (ev, picker) {
+          startDate = picker.startDate;
+          endDate = picker.endDate;
+          // Update the end date input with the selected end date
+          $(this).val(endDate.format('MM/DD/YYYY'));
+          // Update the start date input with the selected start date
+          $('input[name="dates"]').eq(0).val(startDate.format('MM/DD/YYYY'));
+          // Update the start date picker's display
+          updateStartDatePicker(startDate, endDate);
+        });
+
+        function updateStartDatePicker(start, end) {
+          // Here we update the start date input value and the daterangepicker's start and end dates
+          var startInput = $('input[name="dates"]').eq(0);
+          startInput.data('daterangepicker').setStartDate(start);
+          startInput.data('daterangepicker').setEndDate(end);
+          startInput.val(start.format('MM/DD/YYYY')); // Format can be adjusted to your preference
+        }
+
+        function updateEndDatePicker(start, end) {
+          // Here we update the end date input value and the daterangepicker's start and end dates
+          var endInput = $('input[name="dates"]').eq(1);
+          endInput.data('daterangepicker').setStartDate(start);
+          endInput.data('daterangepicker').setEndDate(end);
+          endInput.val(end.format('MM/DD/YYYY')); // Format can be adjusted to your preference
+        }
+      });
+    </script>
+
+
+    <!-- <script src="./node_modules/flowbite/dist/flowbite.min.js"></script> -->
+    <!-- <script src="./node_modules/flowbite/dist/datepicker.js"></script> -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Listen for clicks on dropdown items
+        document.querySelectorAll('#dropdown a').forEach(item => {
+          item.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent the link from navigating
+            const selection = this.textContent; // Get the text content of the clicked item
+            const dropdownButton = document.querySelector('#dropdown-selected'); // Select the placeholder element
+            dropdownButton.textContent = selection; // Update the placeholder text
+          });
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Function to toggle dropdown visibility
+        function toggleDropdown() {
+          const dropdown = document.getElementById('dropdown');
+          dropdown.classList.toggle('hidden'); // Toggle the 'hidden' class
+        }
+
+        // Listen for clicks on dropdown items
+        document.querySelectorAll('#dropdown a').forEach(item => {
+          item.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent the link from navigating
+            const selection = this.textContent; // Get the text content of the clicked item
+            const dropdownButtonSpan = document.querySelector('#dropdown-selected'); // Select the placeholder span
+            dropdownButtonSpan.textContent = selection; // Update the placeholder span's text
+
+            toggleDropdown(); // Close the dropdown
+          });
+        });
+
+        // Listen for clicks on the dropdown button to toggle visibility
+        document.getElementById('dropdown-button').addEventListener('click', function () {
+          toggleDropdown();
+        });
+      });
+
+    </script>
+
+    <script>
+      // toggle adicional information
+      document.getElementById('toggle-location').addEventListener('click', function () {
+        var additionalLocation = document.getElementById('additional-location');
+        if (additionalLocation.classList.contains('hidden')) {
+          additionalLocation.classList.remove('hidden');
+        } else {
+          additionalLocation.classList.add('hidden');
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Query all dropdown items
+        var dropdownItems = document.querySelectorAll('#dropdown-2 a');
+
+        // Add click event listener to each item
+        dropdownItems.forEach(function (item) {
+          item.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+
+            var selectedItemText = this.textContent || this.innerText; // Get the text of the clicked item
+
+            // Update the dropdown button text to reflect the selected item
+            document.getElementById('dropdown-selected-2').textContent = selectedItemText;
+
+            // Optionally, hide the dropdown menu after selection
+            document.getElementById('dropdown-2').classList.add('hidden');
+          });
+        });
+      });
+
+    </script>
+
+    <script>
+      document.getElementById('toggle-location2').addEventListener('click', function () {
+        var inputContainer = document.getElementById('input-container');
+        if (inputContainer.classList.contains('hidden')) {
+          inputContainer.classList.remove('hidden');
+        } else {
+          inputContainer.classList.add('hidden');
+        }
+      });
+    </script>
+
+
+</body>
+
+</html>
